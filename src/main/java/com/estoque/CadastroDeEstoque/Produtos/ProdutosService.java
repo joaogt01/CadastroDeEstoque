@@ -29,4 +29,18 @@ public class ProdutosService {
     public ProdutosModel criarProduto(ProdutosModel produto){
         return produtosRepository.save(produto);
     }
+
+    //Deletar Produto
+    public void deletarProdutoPorId(Long id){
+        produtosRepository.deleteById(id);
+    }
+
+    //Atualizar Produto
+    public ProdutosModel atualizarProduto(Long id, ProdutosModel produtosAtualizado){
+        if (produtosRepository.existsById(id)){
+            produtosAtualizado.setId(id);
+            return produtosRepository.save(produtosAtualizado);
+        }
+        return null;
+    }
 }

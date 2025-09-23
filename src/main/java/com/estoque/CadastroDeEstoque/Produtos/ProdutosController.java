@@ -29,13 +29,14 @@ public class ProdutosController {
         return produtosService.listarProdutosPorId(id);
     }
 
-    @PutMapping("/alterarID")
-    public String alterarProdutosPorId(){
-        return "Alterar produtos por id";
+    @PutMapping("/alterar/{id}")
+    public ProdutosModel alterarProdutosPorId(@PathVariable Long id, @RequestBody ProdutosModel produtosAtualizado){
+        return produtosService.atualizarProduto(id, produtosAtualizado);
     }
 
-    @DeleteMapping("/deletarID")
-    public String deletarProdutosPorId(){
-        return "Deletar Produtos Por Id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarProdutosPorId(@PathVariable Long id) {
+        produtosService.deletarProdutoPorId(id);
+
     }
 }
