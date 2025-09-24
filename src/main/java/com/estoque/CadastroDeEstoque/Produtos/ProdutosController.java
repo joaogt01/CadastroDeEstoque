@@ -1,5 +1,9 @@
 package com.estoque.CadastroDeEstoque.Produtos;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,11 @@ public class ProdutosController {
     }
 
     @PostMapping("/criar")
+    @Operation(summary = "Cria um novo produto", description = "Essa rota traz a função de criar um produto e insere no banco de dados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Produto criado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Erro na criação do Produto")
+    })
     public ResponseEntity<String> criarProduto(@RequestBody ProdutosDTO produtos){
         ProdutosDTO novoProduto = produtosService.criarProduto(produtos);
         return ResponseEntity.ok("Produto criado com sucesso: Nome: " + novoProduto.getNome() + " ID: " + novoProduto.getId());
@@ -29,6 +38,11 @@ public class ProdutosController {
     }
 
     @GetMapping("/listar/{id}")
+    @Operation(summary = "Lista o produto por ID", description = "Essa rota lista um produto por seu ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Produto encontrado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Produto nao encontrado")
+    })
     public ResponseEntity<String> listarProdutosPorId(@PathVariable Long id){
         ProdutosDTO produtosId = produtosService.listarProdutosPorId(id);
         if ( produtosId != null){
@@ -40,7 +54,16 @@ public class ProdutosController {
     }
 
     @PutMapping("/alterar/{id}")
-    public ResponseEntity<String> alterarProdutosPorId(@PathVariable Long id, @RequestBody ProdutosDTO produtosAtualizado){
+    @Operation(summary = "Altera produto por ID", description = "Essa rota traz a função de alterar um produto por seu ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Produto alterado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Produto não encontrado, não foi possivel alterar")
+    })
+    public ResponseEntity<String> alterarProdutosPorId(
+            @Parameter(description = "Usuario manda o ID no caminho da requisição")
+            @PathVariable Long id,
+            @Parameter(description = "Usuario manda os dados do Produto a ser atualizado no corpo da requisição")
+            @RequestBody ProdutosDTO produtosAtualizado){
         ProdutosDTO listar = produtosService.listarProdutosPorId(id);
         if(listar != null){
             produtosService.atualizarProduto(id,produtosAtualizado);
