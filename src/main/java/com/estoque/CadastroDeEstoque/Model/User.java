@@ -1,4 +1,4 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,13 +36,13 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "";
+        return this.senha;
     }
 
 
     @Override
     public String getUsername() {
-        return "";
+        return this.usuario;
     }
 
     @Override
