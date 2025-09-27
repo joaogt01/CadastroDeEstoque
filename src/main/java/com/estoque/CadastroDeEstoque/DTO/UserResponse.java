@@ -1,4 +1,4 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.DTO;
 
 import lombok.Builder;
 

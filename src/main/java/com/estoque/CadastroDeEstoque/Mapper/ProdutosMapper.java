@@ -1,5 +1,7 @@
-package com.estoque.CadastroDeEstoque.Produtos;
+package com.estoque.CadastroDeEstoque.Mapper;
 
+import com.estoque.CadastroDeEstoque.DTO.ProdutosDTO;
+import com.estoque.CadastroDeEstoque.Model.ProdutosModel;
 import org.springframework.stereotype.Component;
 
 @Component

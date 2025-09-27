@@ -1,5 +1,6 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Repository;
 
+import com.estoque.CadastroDeEstoque.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

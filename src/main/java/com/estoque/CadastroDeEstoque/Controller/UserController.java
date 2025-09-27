@@ -1,5 +1,13 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Controller;
 
+import com.estoque.CadastroDeEstoque.DTO.LoginRequest;
+import com.estoque.CadastroDeEstoque.DTO.LoginResponse;
+import com.estoque.CadastroDeEstoque.DTO.UserRequest;
+import com.estoque.CadastroDeEstoque.DTO.UserResponse;
+import com.estoque.CadastroDeEstoque.Mapper.UserMapper;
+import com.estoque.CadastroDeEstoque.Model.User;
+import com.estoque.CadastroDeEstoque.Service.TokenService;
+import com.estoque.CadastroDeEstoque.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("produtos/autenticacao")
+@RequestMapping("/produtos/autenticacao")
 @RequiredArgsConstructor
 public class UserController {
 

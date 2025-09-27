@@ -1,5 +1,7 @@
-package com.estoque.CadastroDeEstoque.Produtos;
+package com.estoque.CadastroDeEstoque.Controller;
 
+import com.estoque.CadastroDeEstoque.DTO.ProdutosDTO;
+import com.estoque.CadastroDeEstoque.Service.ProdutosService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

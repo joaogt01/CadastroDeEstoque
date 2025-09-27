@@ -1,11 +1,14 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Mapper;
 
+import com.estoque.CadastroDeEstoque.Model.User;
+import com.estoque.CadastroDeEstoque.DTO.UserRequest;
+import com.estoque.CadastroDeEstoque.DTO.UserResponse;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class UserMapper {
 
-    public static  User toUser(UserRequest request){
+    public static User toUser(UserRequest request){
         return User.builder()
                 .nome(request.nome())
                 .usuario(request.usuario())

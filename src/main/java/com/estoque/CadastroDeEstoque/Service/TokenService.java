@@ -1,6 +1,7 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Service;
 
 import com.auth0.jwt.algorithms.Algorithm;
+import com.estoque.CadastroDeEstoque.Model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.auth0.jwt.JWT;
@@ -10,7 +11,7 @@ import java.time.Instant;
 
 @Component
 public class TokenService {
-    @Value("${cadastrodeestoque.security.secret}")
+    @Value("${CadastroDeEstoque.security.secret}")
     private String secret;
 
 

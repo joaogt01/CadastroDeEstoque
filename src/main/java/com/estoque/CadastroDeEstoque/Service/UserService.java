@@ -1,6 +1,8 @@
-package com.estoque.CadastroDeEstoque.Usuario;
+package com.estoque.CadastroDeEstoque.Service;
 
 
+import com.estoque.CadastroDeEstoque.Model.User;
+import com.estoque.CadastroDeEstoque.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

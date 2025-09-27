@@ -1,5 +1,9 @@
-package com.estoque.CadastroDeEstoque.Produtos;
+package com.estoque.CadastroDeEstoque.Service;
 
+import com.estoque.CadastroDeEstoque.DTO.ProdutosDTO;
+import com.estoque.CadastroDeEstoque.Mapper.ProdutosMapper;
+import com.estoque.CadastroDeEstoque.Model.ProdutosModel;
+import com.estoque.CadastroDeEstoque.Repository.ProdutosRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

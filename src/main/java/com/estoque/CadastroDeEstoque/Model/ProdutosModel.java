@@ -1,20 +1,22 @@
-package com.estoque.CadastroDeEstoque.Produtos;
+package com.estoque.CadastroDeEstoque.Model;
 
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Entity
+@Table(name = "tb_cadastro_produtos")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProdutosDTO {
-
+@Data
+public class ProdutosModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
 
     private float preco;
-
     private int quantidade;
-
 }
