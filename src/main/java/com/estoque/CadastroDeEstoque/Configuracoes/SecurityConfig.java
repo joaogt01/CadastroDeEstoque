@@ -30,12 +30,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/produtos/autenticacao/registrar").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/produtos/autenticacao/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/autenticacao/registrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/autenticacao/login").permitAll()
                         .anyRequest().authenticated()
                 )
-                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

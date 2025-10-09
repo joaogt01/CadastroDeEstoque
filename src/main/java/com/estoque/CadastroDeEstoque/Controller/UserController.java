@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/produtos/autenticacao")
+@RequestMapping("/autenticacao")
 @RequiredArgsConstructor
 public class UserController {
 
