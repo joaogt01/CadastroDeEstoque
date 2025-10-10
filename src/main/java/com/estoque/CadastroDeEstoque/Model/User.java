@@ -1,5 +1,6 @@
 package com.estoque.CadastroDeEstoque.Model;
 
+import com.estoque.CadastroDeEstoque.DTO.UserRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -63,5 +64,11 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public User(UserRequest userRequest){
+        this.nome = userRequest.nome();
+        this.usuario = userRequest.usuario();
+        this.senha = userRequest.senha();
     }
 }
