@@ -33,12 +33,23 @@ public class Venda {
             joinColumns = @JoinColumn(name = "Venda_id"),
             inverseJoinColumns = @JoinColumn(name = "tb_cadastro_produtos_id")
     )
+
     private List<ProdutosModel> produtosModels;
 
-    @ManyToMany
-    public void calcularTotal(){
-        this.total = produtosModels.stream()
-                .mapToDouble(ProdutosModel::getPreco)
-                .sum();
+    @PrePersist
+    public void prePersist() {
+        this.data = LocalDate.now();
+        calcularTotal();
     }
+
+    public void calcularTotal(){
+        if (produtosModels != null) {
+            this.total = produtosModels.stream()
+                    .mapToDouble(ProdutosModel::getPreco)
+                    .sum();
+        } else {
+            this.total = 0.0;
+        }
+    }
+
 }
