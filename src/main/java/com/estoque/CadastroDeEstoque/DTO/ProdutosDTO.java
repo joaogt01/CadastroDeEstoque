@@ -17,4 +17,5 @@ public class ProdutosDTO {
 
     private int quantidade;
 
+    private Long estoqueId;
 }
