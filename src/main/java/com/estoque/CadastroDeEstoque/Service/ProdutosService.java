@@ -4,6 +4,7 @@ import com.estoque.CadastroDeEstoque.DTO.ProdutosDTO;
 import com.estoque.CadastroDeEstoque.Mapper.ProdutosMapper;
 import com.estoque.CadastroDeEstoque.Model.ProdutosModel;
 import com.estoque.CadastroDeEstoque.Repository.ProdutosRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.stream.Collectors;
 @Service
 public class ProdutosService {
 
-    private ProdutosRepository produtosRepository;
-    private ProdutosMapper produtosMapper;
+    private final ProdutosRepository produtosRepository;
+    private final ProdutosMapper produtosMapper;
 
     public ProdutosService(ProdutosMapper produtosMapper, ProdutosRepository produtosRepository) {
         this.produtosMapper = produtosMapper;
@@ -32,7 +33,10 @@ public class ProdutosService {
     //Listar produtos por ID
     public ProdutosDTO listarProdutosPorId(Long id){
         Optional<ProdutosModel> produtosPorId = produtosRepository.findById(id);
-        return produtosPorId.map(produtosMapper::map).orElse(null);
+        return produtosRepository.findById(id)
+                .map(produtosMapper::map)
+                .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
+
     }
 
     //Criar novo produto

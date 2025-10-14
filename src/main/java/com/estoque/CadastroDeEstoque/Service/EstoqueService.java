@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class EstoqueService {
 
-    private EstoqueRepository estoqueRepository;
-    private EstoqueMapper estoqueMapper;
+    private final EstoqueRepository estoqueRepository;
+    private final EstoqueMapper estoqueMapper;
 
     public EstoqueService(EstoqueMapper estoqueMapper, EstoqueRepository estoqueRepository) {
         this.estoqueMapper = estoqueMapper;

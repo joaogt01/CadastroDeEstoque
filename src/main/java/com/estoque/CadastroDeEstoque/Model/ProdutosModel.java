@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
-@Table(name = "tb_cadastro_produtos")
+@Table(name = "produtos")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -15,11 +17,12 @@ public class ProdutosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
-    private float preco;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal preco;
 
     @Column(nullable = false)
     private int quantidade;

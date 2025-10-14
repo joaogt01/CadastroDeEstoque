@@ -36,7 +36,9 @@ public class ProdutosMapper {
         produtosDTO.setNome(produtosModel.getNome());
         produtosDTO.setPreco(produtosModel.getPreco());
         produtosDTO.setQuantidade(produtosModel.getQuantidade());
-        produtosDTO.setEstoqueId(produtosModel.getEstoque() != null ? produtosModel.getEstoque().getId() : null);
+        if (produtosModel.getEstoque() != null) {
+            produtosDTO.setEstoqueId(produtosModel.getEstoque().getId());
+        }
         return produtosDTO;
     }
 

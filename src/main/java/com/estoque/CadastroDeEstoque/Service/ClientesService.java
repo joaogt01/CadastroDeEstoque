@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class ClientesService {
-    private ClientesRepository clientesRepository;
-    private ClientesMapper clientesMapper;
+    private final ClientesRepository clientesRepository;
+    private final ClientesMapper clientesMapper;
 
     public ClientesService(ClientesRepository clientesRepository, ClientesMapper clientesMapper) {
         this.clientesRepository = clientesRepository;

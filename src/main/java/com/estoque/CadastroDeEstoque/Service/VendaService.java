@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class VendaService {
-    private VendasRepository vendasRepository;
-    private VendaMapper vendaMapper;
+    private final VendasRepository vendasRepository;
+    private final VendaMapper vendaMapper;
 
     public VendaService(VendaMapper vendaMapper, VendasRepository vendasRepository) {
         this.vendaMapper = vendaMapper;

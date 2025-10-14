@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -45,7 +46,8 @@ public class Venda {
     public void calcularTotal(){
         if (produtosModels != null) {
             this.total = produtosModels.stream()
-                    .mapToDouble(ProdutosModel::getPreco)
+                    .map(ProdutosModel::getPreco)
+                    .mapToDouble(BigDecimal::doubleValue)
                     .sum();
         } else {
             this.total = 0.0;
