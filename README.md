@@ -1,6 +1,6 @@
 # 📦 Cadastro De Estoque
 
-![Java](https://img.shields.io/badge/Java-17-blue?style=flat&logo=java) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.6-green?style=flat&logo=spring) ![Maven](https://img.shields.io/badge/Maven-3.8.6-orange?style=flat&logo=apache-maven) ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=flat&logo=mysql) ![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=flat&logo=github) ![Spring Security](https://img.shields.io/badge/Spring%20Security-black?style=flat&logo=springsecurity)
+![Java](https://img.shields.io/badge/Java-24-blue?style=flat&logo=java) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.6-green?style=flat&logo=spring) ![Maven](https://img.shields.io/badge/Maven-3.8.6-orange?style=flat&logo=apache-maven) ![MySQL](https://img.shields.io/badge/Postgres-16-blue?style=flat&logo=mysql) ![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=flat&logo=github) ![Spring Security](https://img.shields.io/badge/Spring%20Security-black?style=flat&logo=springsecurity)
 
 ---
 
@@ -20,7 +20,7 @@ O sistema oferece:
 ## ⚙️ Funcionalidades
 
 - 🔐 Autenticação e autorização com JWT  
-- 🧾 Cadastro de clientes e produtos  
+- 🧾 Cadastro de clientes, produtos , localização de estoques e vendas 
 - 📦 Controle de estoque (adicionar/remover produtos)  
 - 💳 Registro de vendas e associação de produtos  
 - 🔍 Listagem e busca por ID  
