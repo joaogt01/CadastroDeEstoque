@@ -18,19 +18,19 @@ public class ClientesController {
         this.clientesService = clientesService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<String> criarProduto(@RequestBody ClientesDTO cliente){
         ClientesDTO novoCliente = clientesService.criarCliente(cliente);
         return ResponseEntity.ok("Cliente criado com sucesso: Nome: " + novoCliente.getNome() + " ID: " + novoCliente.getId());
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<ClientesDTO>> listarClientes(){
         List<ClientesDTO> clientesDTO = clientesService.listarClientes();
         return ResponseEntity.ok(clientesDTO);
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<String> listarClientesPorId(@PathVariable Long id){
         ClientesDTO clientesId = clientesService.listarClientesPorId(id);
         if (clientesId != null){
@@ -41,7 +41,7 @@ public class ClientesController {
         }
     }
 
-    @PutMapping("/alterar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> alterarClientesPorId(@PathVariable Long id, @RequestBody ClientesDTO clienteAtualizado){
         ClientesDTO listarClientes = clientesService.listarClientesPorId(id);
         if(listarClientes != null){
@@ -53,7 +53,7 @@ public class ClientesController {
         }
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarProdutosPorId(@PathVariable Long id) {
         ClientesDTO listar = clientesService.listarClientesPorId(id);
         if (listar != null){

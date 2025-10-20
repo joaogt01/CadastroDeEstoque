@@ -22,7 +22,7 @@ public class ProdutosController {
         this.produtosService = produtosService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     @Operation(summary = "Cria um novo produto", description = "Essa rota traz a função de criar um produto e insere no banco de dados")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Produto criado com sucesso"),
@@ -33,13 +33,13 @@ public class ProdutosController {
         return ResponseEntity.ok("Produto criado com sucesso: Nome: " + novoProduto.getNome() + " ID: " + novoProduto.getId());
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<ProdutosDTO>> listarProdutos(){
         List<ProdutosDTO> produtosDTO = produtosService.listarProdutos();
         return ResponseEntity.ok(produtosDTO);
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "Lista o produto por ID", description = "Essa rota lista um produto por seu ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Produto encontrado com sucesso"),
@@ -55,7 +55,7 @@ public class ProdutosController {
         }
     }
 
-    @PutMapping("/alterar/{id}")
+    @PutMapping("/{id}")
     @Operation(summary = "Altera produto por ID", description = "Essa rota traz a função de alterar um produto por seu ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Produto alterado com sucesso"),
@@ -77,7 +77,7 @@ public class ProdutosController {
 
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarProdutosPorId(@PathVariable Long id) {
         ProdutosDTO listar = produtosService.listarProdutosPorId(id);
         if (listar != null){

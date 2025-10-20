@@ -18,19 +18,19 @@ public class VendaController {
         this.vendaService = vendaService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<String> criarVenda(@RequestBody VendaDTO venda){
         VendaDTO novaVenda = vendaService.criarVenda(venda);
         return ResponseEntity.ok("Venda criada com sucesso");
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<VendaDTO>> listarVendas(){
         List<VendaDTO> vendas = vendaService.listarVendas();
         return ResponseEntity.ok(vendas);
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<String> listarVendaPorId(@PathVariable Long id){
         VendaDTO vendaId = vendaService.listarVendaPorId(id);
         if (vendaId != null){
@@ -41,7 +41,7 @@ public class VendaController {
         }
     }
 
-    @PutMapping("/alterar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> alterarVendaPorId(@PathVariable Long id, @RequestBody VendaDTO vendaAtualizada){
         VendaDTO listarVendasID = vendaService.listarVendaPorId(id);
         if(listarVendasID != null){
@@ -53,7 +53,7 @@ public class VendaController {
         }
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarVendaPorId(@PathVariable Long id) {
         VendaDTO listar = vendaService.listarVendaPorId(id);
         if (listar != null){

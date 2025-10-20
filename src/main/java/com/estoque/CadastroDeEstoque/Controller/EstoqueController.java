@@ -18,19 +18,19 @@ public class EstoqueController {
         this.estoqueService = estoqueService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public ResponseEntity<String> criarEstoque(@RequestBody EstoqueDTO estoque){
         EstoqueDTO novoEstoque = estoqueService.criarNoEstoque(estoque);
         return ResponseEntity.ok("Estoque criado com sucesso: Local: " + novoEstoque.getLocalizacao() + " ID: " + novoEstoque.getId());
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<EstoqueDTO>> listarEstoque(){
         List<EstoqueDTO> estoqueDTO = estoqueService.listarEstoque();
         return ResponseEntity.ok(estoqueDTO);
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<String> listarEstoquePorId(@PathVariable Long id){
         EstoqueDTO estoqueId = estoqueService.listarEstoquePorId(id);
         if (estoqueId != null){
@@ -41,7 +41,7 @@ public class EstoqueController {
         }
     }
 
-    @PutMapping("/alterar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> alterarEstoquePorId(@PathVariable Long id, @RequestBody EstoqueDTO estoqueAtualizado){
         EstoqueDTO listarClientes = estoqueService.listarEstoquePorId(id);
         if(listarClientes != null){
@@ -53,7 +53,7 @@ public class EstoqueController {
         }
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deletarEstoquePorId(@PathVariable Long id) {
         EstoqueDTO listar = estoqueService.listarEstoquePorId(id);
         if (listar != null){
